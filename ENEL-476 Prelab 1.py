@@ -11,8 +11,6 @@ import seaborn as sns
 
 def Q1() -> None:
 
-    L, H = 1, 1
-
     num_point = int(5e5)
 
     Z = np.linspace(start=0, stop=L, num=num_point)
@@ -36,8 +34,6 @@ def Q1() -> None:
 
 ########################################################################
 def Q2() -> None:
-
-    L, H, V = 1, 1, 1
 
     num_point = int(5e5)
 
@@ -63,8 +59,6 @@ def Q2() -> None:
 ########################################################################
 
 def Q3() -> None:
-
-    L, H, V, a = 1, 1, 1, 1
 
     num_point = int(5e5)
 
@@ -93,8 +87,6 @@ def Q3() -> None:
 
 def Q4() -> None:
     
-    L, H, V, a = 1, 1, 1, 1
-
     num_point = int(5e5)
 
     T = np.linspace(start=0, stop=L, num=num_point)
@@ -133,8 +125,6 @@ def Q5() -> None:
     # If the magnet were flipped nothing about the situation would change as it is the change magnetic field that
     # defines the EMF, not the polarity.
 
-    L, H, V, a, R = 1, 1, 1, 1, 1
-
     num_point = int(5e5)
 
     T = np.linspace(start=0, stop=L, num=num_point)
@@ -155,6 +145,8 @@ def Q5() -> None:
     return
 
 if __name__ == '__main__':
+    L, H, V, a, R = 1, 1, 1, 1, 1
+
     Q1()
     Q2()
     Q3()
