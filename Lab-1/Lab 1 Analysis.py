@@ -1,7 +1,6 @@
 import numpy as np
 from numpy.polynomial import Polynomial
 import seaborn as sns
-import scipy as sci
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
@@ -28,7 +27,7 @@ for file in os.listdir(data_path):
     x = x[finite_mask]
     y = y[finite_mask]
 
-    time_mask = np.abs(x) < 0.045 # Truncate large time values
+    time_mask = np.abs(x) < 0.06 # Truncate large time values
 
     x = x[time_mask]
     y = y[time_mask]
@@ -41,32 +40,32 @@ for file in os.listdir(data_path):
     flux = -1 * np.cumsum(voltage)
 
     # Plot voltage
-    ax = sns.scatterplot(x=x, y=voltage)
-    plt.title(f'{file} Voltage')
+    ax = sns.lineplot(x=x, y=voltage)
+    plt.title(f'Voltage vs. Time')
     plt.xlabel('Time (s)')
     plt.ylabel('Voltage (V)')
     plt.savefig(f'{graphs_path + '/' + file} voltage.png')
     plt.close()
 
     # Plot current
-    ax = sns.scatterplot(x=x, y=voltage / resistance)
-    plt.title(f'{file} Current')
+    ax = sns.lineplot(x=x, y=voltage / resistance)
+    plt.title(f'Current vs. Time')
     plt.xlabel('Time (s)')
     plt.ylabel('Current (A)')
     plt.savefig(f'{graphs_path + '/' + file} current.png')
     plt.close()
 
     # Plot flux
-    ax = sns.scatterplot(x=x, y=flux)
-    plt.title(f'{file} Flux')
+    ax = sns.lineplot(x=x, y=flux)
+    plt.title(f'Magnetic Flux vs. Time')
     plt.xlabel('Time (s)')
     plt.ylabel('Magnetic Flux (Wb)')
     plt.savefig(f'{graphs_path + '/' + file} Flux.png')
     plt.close()
 
     # Plot magnetic field
-    ax = sns.scatterplot(x=x, y=flux * area / mu_0)
-    plt.title(f'{file} Magnetic Field')
+    ax = sns.lineplot(x=x, y=flux * area / mu_0)
+    plt.title(f'Magnetic Field vs. Time')
     plt.xlabel('Time (s)')
     plt.ylabel('Magnetic Field (T)')
     plt.savefig(f'{graphs_path + '/' + file} Magnetic Field.png')
