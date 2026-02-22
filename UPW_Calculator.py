@@ -3,16 +3,16 @@ from scipy.constants import mu_0, epsilon_0, c
 
 calc_general_alpha = lambda angular_frequency, relative_permeability, relative_permittivity, conductivity: (
         angular_frequency * np.sqrt(mu_0 * relative_permeability * epsilon_0 * relative_permittivity / 2 * 
-        (np.sqrt(1 + np.power(conductivity / (angular_frequency * epsilon_0 * relative_permittivity), 2) - 1)))
+        (np.sqrt(1 + np.power(conductivity / (angular_frequency * epsilon_0 * relative_permittivity), 2)) - 1))
         )
 
 calc_general_beta = lambda angular_frequency, relative_permittivity, conductivity, relative_permeability: (
         angular_frequency * np.sqrt(mu_0 * relative_permeability * epsilon_0 * relative_permittivity / 2 * 
-        (np.sqrt(1 + np.power(conductivity / (angular_frequency * epsilon_0 * relative_permittivity), 2) + 1)))
+        (np.sqrt(1 + np.power(conductivity / (angular_frequency * epsilon_0 * relative_permittivity), 2)) + 1))
         )
 
 calc_general_eta = lambda relative_permeability, relative_permittivity, angular_frequency, conductivity: (
-        np.sqrt(mu_0 * relative_permeability / epsilon_0 * relative_permittivity) 
+        np.sqrt(mu_0 * relative_permeability / (epsilon_0 * relative_permittivity)) 
         / np.power(1 + np.power(conductivity / (angular_frequency * epsilon_0 * relative_permittivity), 2), 1/4)
         )
 
