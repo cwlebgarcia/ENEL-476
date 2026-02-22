@@ -21,7 +21,8 @@ calc_general_theta_eta = lambda conductivity, angular_frequency, relative_permit
         )
 
 if __name__ == "__main__":
-    f = 10e6 # GHz
+    
+    f = 10e6 # Hz
     angular_frequency = 2 * np.pi * f
     relative_permittivity = 4
     relative_permeability = 1
